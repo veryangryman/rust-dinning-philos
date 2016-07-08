@@ -75,11 +75,11 @@ fn main() {
 
     println!("Усаживаем философов");
     let philosophers = vec![
-        Philosopher::new("Джудит Батлер",    0, 5, 0, 1),
-        Philosopher::new("Рая Дунаевская",   1, 2, 1, 2),
-        Philosopher::new("Зарубина Наталья", 2, 1, 2, 3),
-        Philosopher::new("Эмма Гольдман",    0, 3, 3, 4),
-        Philosopher::new("Анна Шмидт",       3, 2, 4, 0),
+        Philosopher::new("Джудит Батлер",    11, 5, 0, 1),
+        Philosopher::new("Рая Дунаевская",   17, 2, 1, 2),
+        Philosopher::new("Зарубина Наталья", 23, 1, 2, 3),
+        Philosopher::new("Эмма Гольдман",    19, 3, 3, 4),
+        Philosopher::new("Анна Шмидт",       13, 4, 4, 0),
     ];
 
     println!("Начинаем обед");
