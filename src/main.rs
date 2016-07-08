@@ -26,32 +26,32 @@ impl Philosopher {
         let mut _left;
         let mut _right;
         loop {
+            println!("{} пытается поесть", self.name);
             _left = match table.forks[self.left].try_lock() {
                 Ok(_left) => {
-                    println!("{} берёт в левую {}", self.name, self.left);
+                    println!("{} берёт в левую руку вилку {}", self.name, self.left);
                     _right = match table.forks[self.right].try_lock() {
                         Ok(_right) => {
-                            println!("{} берёт в правую {}", self.name, self.right);
+                            println!("{} берёт в правую руку вилку {}", self.name, self.right);
                             println!("{} начала есть", self.name);
                             thread::sleep(Duration::from_millis(1000 * (self.speed as u64)));
                             println!("{} закончила есть", self.name);
-                            println!("{} кладёт {} и {}", self.name, self.left, self.right);
+                            println!("{} кладёт вилки {} и {}", self.name, self.left, self.right);
                             break;
                         },
                         Err(..) => {
-                            println!("{} не смогла взять в правую {}", self.name, self.right);
-                            thread::sleep(Duration::from_millis(1000 * (self.patience as u64)));
-                            println!("{} кладёт {}", self.name, self.left);
+                            println!("{} не смогла взять в правую руку вилку {}", self.name, self.right);
+                            println!("{} кладёт вилку {}", self.name, self.left);
                             drop(_left);
-                            continue;
                         }
                     };
                 },
                 Err(..) => {
-                    println!("{} не смогла взять в левую {}", self.name, self.left);
-                    thread::sleep(Duration::from_millis(1000 * (self.patience as u64)));
+                    println!("{} не смогла взять в левую руку вилку {}", self.name, self.left);
                 }
             };
+            println!("{} ждёт", self.name);
+            thread::sleep(Duration::from_millis(1000 * (self.patience as u64)));
         };
     }
 }
