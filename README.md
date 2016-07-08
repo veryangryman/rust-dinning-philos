@@ -1,13 +1,9 @@
 # rust-dinning-philos
 
 Complete example "Dinning philosophers" from the rust book.
-
 I don't use the other-hand way to avoid deadlock.
-
 Every for under the mutex.
-
 Every philosopher takes a left fork first, then takes a right fork.
-
 Every philosopher implement this flow:
 
 1. Try to take a fork in left hand (try_lock(left_fork)).
